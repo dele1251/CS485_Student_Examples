@@ -8,14 +8,16 @@
 //***************************************************************************
 
 #define MEM_DEBUG
-// #include "mem_debug.h"
+ //#include "mem_debug.h"
 
 #include <iostream>
 #include "PacString.h"
 
+using namespace std;
+
 int main ()
 {
-//  _CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+  //_CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
   PacString s1 = "Hello!";
 
@@ -41,12 +43,19 @@ int main ()
 
   // dynamically allocate the PacString object using
   // pcDynString.
+  pcDynString = new PacString ("CS485");
   // Assign "CS485" to pcDynString.
   // Display pcDynString.
+  cout << *pcDynString << endl;
   // concatenate " is the best!" on to
   // pcDynString
+  PacString concated = " is the best!";
+
+  *pcDynString = *pcDynString + concated;
   // Display pcDynString.
+  cout << *pcDynString << endl;
   // deallocate the object pcDynString 
+  delete (pcDynString);
 
   return EXIT_SUCCESS;
 }
