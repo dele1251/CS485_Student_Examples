@@ -17,7 +17,7 @@ using namespace std;
 
 int main ()
 {
-  //_CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+ // _CrtSetDbgFlag (_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
   PacString s1 = "Hello!";
 
@@ -49,9 +49,10 @@ int main ()
   cout << *pcDynString << endl;
   // concatenate " is the best!" on to
   // pcDynString
-  PacString concated = " is the best!";
+  PacString *concated;
+  concated = new PacString (" is the best!");
 
-  *pcDynString = *pcDynString + concated;
+  *pcDynString = *pcDynString + *concated;
   // Display pcDynString.
   cout << *pcDynString << endl;
   // deallocate the object pcDynString 
