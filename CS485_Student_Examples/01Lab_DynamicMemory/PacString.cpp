@@ -59,7 +59,7 @@ PacString& PacString::operator=(PacString rcData)
   mpszData = new char[strlen (rcData.mpszData) + 1];
   //pcNew = rcData.mpszData;
   mpszData = rcData.mpszData;
-  return mpszData;
+  return *this;
 }
 
 //PacString& PacString::operator=(const PacString &rcData)

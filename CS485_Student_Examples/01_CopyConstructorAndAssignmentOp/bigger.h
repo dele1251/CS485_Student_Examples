@@ -24,9 +24,9 @@ public:
 
   ~bigger ();
 
-  bigger (const bigger &rcData) = delete; // will prevent from making copies of objects
+  bigger (const bigger &rcData); // will prevent from making copies of objects if = delete
 
-  bigger& operator= (const bigger &rcData) = delete; // control compiler
+  bigger& operator= (const bigger &rcData); // control compiler if = delete
 
 private:
   int mData = 0;
