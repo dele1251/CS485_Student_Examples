@@ -20,9 +20,9 @@
 //***************************************************************************
 bigData::bigData ()
 {
-  mID = getID ();
+	mID = getID ();
 
-  //std::cout << "ctor " << *this << std::endl;
+	std::cout << "ctor " << *this << std::endl;
 }
 
 //***************************************************************************
@@ -37,10 +37,10 @@ bigData::bigData ()
 //***************************************************************************
 bigData::bigData (int data)
 {
-  mID = getID ();
-  mpHugeData = new int;
-  *mpHugeData = data;
-  //std::cout << "ctor(int) " << *this << std::endl;
+	mID = getID ();
+	mpHugeData = new int;
+	*mpHugeData = data;
+	std::cout << "ctor(int) " << *this << std::endl;
 }
 
 //***************************************************************************
@@ -54,8 +54,8 @@ bigData::bigData (int data)
 //***************************************************************************
 bigData::~bigData ()
 {
-  std::cout << "dtor: " << *this << std::endl;
-  delete mpHugeData;
+	std::cout << "dtor: " << *this << std::endl;
+	delete mpHugeData;
 }
 
 //***************************************************************************
@@ -69,14 +69,14 @@ bigData::~bigData ()
 //***************************************************************************
 bigData::bigData (const bigData &rcData)
 {
-  mID = getID ();
+	mID = getID ();
 
-  if (nullptr != rcData.mpHugeData)
-  {
-    mpHugeData = new int;
-    *mpHugeData = *rcData.mpHugeData;
-  }
-  //std::cout << "cctor " << *this << std::endl;
+	if (nullptr != rcData.mpHugeData)
+	{
+		mpHugeData = new int;
+		*mpHugeData = *rcData.mpHugeData;
+	}
+	std::cout << "cctor " << *this << std::endl;
 
 }
 
@@ -92,16 +92,16 @@ bigData::bigData (const bigData &rcData)
 //***************************************************************************
 bigData& bigData::operator=(bigData cData) 
 {
-  //http://en.cppreference.com/w/cpp/algorithm/swap
-  using std::swap;
+	//http://en.cppreference.com/w/cpp/algorithm/swap
+	using std::swap;
 
 	// optionally, you could pass the parameter by reference
 	// then call the copy constructor to make the copy
-	// bigData cData(rcData);
+	 //bigData cData(rcData);
 
-  swap (mpHugeData, cData.mpHugeData);
+	swap (mpHugeData,  cData.mpHugeData);
 
-  return *this;
+	return *this;
 }
 //***************************************************************************
 // Function:    operator<<
@@ -115,16 +115,16 @@ bigData& bigData::operator=(bigData cData)
 //***************************************************************************
 std::ostream& operator<<(std::ostream& out, const bigData &rcData)
 {
-  out << "mID: " << rcData.mID << " mpHugeData: ";
-  if (nullptr != rcData.mpHugeData)
-  {
-    out << *rcData.mpHugeData;
-  }
-  else
-  {
-    out << "nullptr";
-  }
-  return out;
+	out << "mID: " << rcData.mID << " mpHugeData: ";
+	if (nullptr != rcData.mpHugeData)
+	{
+		out << *rcData.mpHugeData;
+	}
+	else
+	{
+		out << "nullptr";
+	}
+	return out;
 }
 
 //***************************************************************************
@@ -138,7 +138,7 @@ std::ostream& operator<<(std::ostream& out, const bigData &rcData)
 //***************************************************************************
 int bigData::getID ()
 {
-  static int id = 0;
+	static int id = 0;
 
-  return id++;
+	return id++;
 }
